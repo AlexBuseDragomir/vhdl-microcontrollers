@@ -1,0 +1,10 @@
+ Address    Code        Basic                     Source
+
+0x00000000  0x00000020  add $0,$0,$0          1    add $0, $0, $0       # dummy operation
+0x00000004  0x8c020040  lw $2,0x00000040($0)  2    lw $2, 0x40($0)  	# load INW0(a) into register 2 
+0x00000008  0x8c030044  lw $3,0x00000044($0)  3    lw $3, 0X44($0)     	# load INW1(b) into register 3
+0x0000000c  0x00422020  add $4,$2,$2          4    add $4, $2, $2 		# $4 = 2*a
+0x00000010  0x00822820  add $5,$4,$2          5    add $5, $4, $2		# $5 = 3*a
+0x00000014  0x00633020  add $6,$3,$3          6    add $6, $3, $3		# $6 = 2*b
+0x00000018  0x00a63822  sub $7,$5,$6          7    sub $7, $5, $6		# $7 = 3a - 2b
+0x0000001c  0xac070048  sw $7,0x00000048($0)  8    sw $7, 0x48($0)	    # get result

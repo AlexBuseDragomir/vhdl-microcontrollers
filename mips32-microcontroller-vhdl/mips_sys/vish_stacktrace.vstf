@@ -1,0 +1,61 @@
+# Current time Mon May 07 11:24:38 2018
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.4b"
+# Version = "2008.11"
+# Date = "Nov 15 2008"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 0047f830. Traceback:
+# 0    0x0047f830: 'Mtirpc_Init + 0x1c480'
+# 1    0x00447630: '<unknown (@0x447630)>'
+# 2    0x100583ea: 'TclServiceIdle + 0x4a'
+# 3    0x1004b834: 'Tcl_DoOneEvent + 0x124'
+# 4    0x10262446: 'Tk_MainLoop + 0x16'
+# 5    0x00472c04: 'Mtirpc_Init + 0xf854'
+# 6    0x00473e15: 'Mtirpc_Init + 0x10a65'
+# 7    0x0065beb3: '<unknown (@0x65beb3)>'
+# 8    0x74e68654: '<unknown (@0x74e68654)>'
+# 9    0x770d4a77: '<unknown (@0x770d4a77)>'
+# 10   0x770d4a47: '<unknown (@0x770d4a47)>'
+StackWalk failed 487
+# End of Stack Trace
+
+# Current time Sun May 13 02:04:35 2018
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.4b"
+# Version = "2008.11"
+# Date = "Nov 15 2008"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 0047f830. Traceback:
+# 0    0x0047f830: 'Mtirpc_Init + 0x1c480'
+# 1    0x00447630: '<unknown (@0x447630)>'
+# 2    0x100583ea: 'TclServiceIdle + 0x4a'
+# 3    0x1004b834: 'Tcl_DoOneEvent + 0x124'
+# 4    0x1002bd68: 'Tcl_VwaitObjCmd + 0x78'
+# 5    0x1000d52b: 'TclEvalObjvInternal + 0x24b'
+# 6    0x1002cad7: 'TclCompEvalObj + 0x637'
+# 7    0x1002c590: 'TclCompEvalObj + 0xf0'
+# 8    0x1000e159: 'Tcl_EvalObjEx + 0x59'
+# 9    0x06c39390: 'Itcl_EvalMemberCode + 0x210'
+# 10   0x07079148: '<unknown (@0x7079148)>'
+StackWalk failed 126
+# End of Stack Trace
+
+# Current time Mon May 14 01:10:12 2018
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.4b"
+# Version = "2008.11"
+# Date = "Nov 15 2008"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 10229069. Traceback:
+# 0    0x10229069: 'TkWinGetDrawableDC + 0x9'
+# 1    0x10229173: 'XCopyArea + 0x23'
+# 2    0x09798748: 'Nlview_DirectAPI + 0x8f508'
+StackWalk failed 487
+# End of Stack Trace
+
