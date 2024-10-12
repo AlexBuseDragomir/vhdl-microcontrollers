@@ -1,4 +1,4 @@
-# vhdl-microcontrollers
+# Microcontrollers implemented in VHDL
 
 This repository contains VHDL implementations for the PIC24 and MIPS32 microcontrollers. These projects were developed during my studies at the Faculty of Computer Science.
 
