@@ -1,3 +1,0 @@
-sch2vhdl -intstyle ise -family spartan3 -flat -suppress -w "D:/CSOlab/Lab9/mips_sys/mips.sch" mips.vhf
-sch2vhdl -intstyle ise -family spartan3 -flat -suppress -w "D:/CSOlab/Lab10/mips_sys/mips.sch" mips.vhf
-sch2vhdl -intstyle ise -family spartan3 -flat -suppress -w "D:/CSOlab/Lab10/mips_sys/mips.sch" mips.vhf
