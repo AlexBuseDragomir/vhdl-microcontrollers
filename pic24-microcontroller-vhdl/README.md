@@ -1,38 +1,39 @@
 # PIC24 Microcontroller designed using VHDL
 
-Description of the signals used:
+This document describes a PIC24 microcontroller designed using VHDL, detailing the signals used and the roles of the different blocks.
 
-1. ALUOP: a 2-bit signal representing the operation that ALU will perform
-2. Branch: set to 1 if a Branch, Expr instruction follows, or if a Branch Z, Expr instruction follows and Z=1
-3. ZEn: set to 1 when the current operation can activate the Z flag
-4. WrReg: contains the position of the register where the value needs to be written
-5. Mem2Reg: selects what will be written to the register (between the operation from ALU and a value read from the data memory)
-6. ZData: holds the value of Z for the current operation
-7. PC: program counter, points to the next instruction to be executed (from ROM memory)
-8. SWA/SWB: the least significant 4 bits from INW0 and INW1
-9. BrType: value 1 when BRA, Expr follows, and 0 when BRA Z, Expr follows
-10. RdData1/RdData2: contents of the two read registers, which will represent the two operands for ALU
-11. Clk: clock pulse for synchronizing the blocks
-12. Z: zero flag
-13. New_Z: the new value of Z at the output of the Z_Update block
-14. Instr: contains the binary form of the instruction from ROM
-15. RegDest: indicates whether to write to the source register (Ws) or the destination register (Wd)
-16. MemWr: indicates whether the result of the operation will be stored in memory
-17. RegWr: indicates whether the result of the operation will be stored in one of the registers (pointed to by WrReg)
-18. INWO: I/O marker for data supply (read-only at the RAM memory level)
-19. INW1: I/O marker for data supply (read-only at the RAM memory level)
-20. OUTW0: I/O marker for observing the contents of memory externally (at the RAM level, write-only)
-21. NegFlag: flag set by ctrl and received by ALU, allowing it to determine whether to perform an arithmetic operation or return the complement of the second operand (Ws), which will later be saved in Wd (NEG Ws, Wd operation)
+## Signals
 
-Roles of the blocks:
+1.  **ALUOP:** 2-bit signal specifying the ALU operation.
+2.  **Branch:** High if a branch instruction (conditional or unconditional) is executed.
+3.  **ZEn:** Enables updating the Zero flag.
+4.  **WrReg:**  Address of the register to be written.
+5.  **Mem2Reg:** Selects between ALU output or memory data for register write.
+6.  **ZData:** Current value of the Zero flag.
+7.  **PC:** Program Counter, points to the next instruction in ROM.
+8.  **SWA/SWB:** Least significant 4 bits of INW0 and INW1.
+9.  **BrType:**  Indicates unconditional (1) or conditional (0) branch.
+10. **RdData1/RdData2:**  Operands read from registers for ALU operations.
+11. **Clk:** Clock signal for synchronization.
+12. **Z:** Zero flag.
+13. **New_Z:** Updated value of the Zero flag.
+14. **Instr:** Binary representation of the current instruction from ROM.
+15. **RegDest:**  Selects destination register (Ws or Wd).
+16. **MemWr:** Enables writing to data memory.
+17. **RegWr:** Enables writing to a register.
+18. **INW0/INW1:** Read-only data input markers for RAM.
+19. **OUTW0:** Write-only data output marker for RAM.
+20. **NegFlag:**  Signals ALU to negate the second operand (Ws).
 
-1. ALU: responsible for performing arithmetic and logical operations (established by decoding ALUOP) on RdData1 and RdData2. ALU transmits the result through Y. Also, it needs to set the Z flag to logical 1 when the result of the operation performed by ALU is zero. Additionally, ALU will be used for the NEG Ws, Wd operation, generating the complement of Ws (operand 2 of ALU).
-2. ProgCnt: stores the value from PC_Update on the rising edge of the clock pulse
-3. PC_Update: sets a new value for ProgCnt, either by incrementing by 2 or by adding the offset multiplied by 2 (left-shifted by one position) for branch instructions
-4. CTRL: given an instruction, it determines the values of all control signals to be used by the other blocks
-5. ROM32x24: represents the ROM memory and contains the program instructions; it is organized as 32 vectors, each consisting of 24 bits
-6. MUX2V4: selects the destination register address based on the instruction specifications (can be Ws or Wd). Wd for arithmetic and NEG instructions, and Ws for MOV F, WND instructions.
-7. DataMem: a RAM memory consisting of 16 locations, each having 16 bits, two read-only locations (INW0 and INW1), and one write-only location (OUTW0)
-8. File_Regs: contains all registers and is responsible for storing information at their level, as well as reading from them
-9. MUX2V16: determines whether the data to be written to the register comes from the memory block or from ALU (depending on the instruction)
-10. Z_Update: handles updating the value of Z if the ZEn signal is active and only on the rising edge of the clock pulse
+## Blocks
+
+1.  **ALU:** Performs arithmetic and logical operations based on ALUOP. Sets the Zero flag if the result is zero.  Handles operand negation for `NEG Ws, Wd` instruction.
+2.  **ProgCnt:**  Registers the value from PC_Update on the rising clock edge.
+3.  **PC_Update:**  Calculates the next PC value (increment or branch).
+4.  **CTRL:**  Decodes the instruction and generates control signals.
+5.  **ROM32x24:**  Read-only memory storing the program instructions (32 words x 24 bits).
+6.  **MUX2V4:**  Selects the destination register address (Ws or Wd).
+7.  **DataMem:**  RAM with 16 locations (16 bits each), two read-only locations (INW0, INW1), and one write-only location (OUTW0).
+8.  **File_Regs:**  Register file; handles reading and writing register data.
+9.  **MUX2V16:**  Selects data source for register write (ALU output or memory data).
+10. **Z_Update:**  Updates the Zero flag based on ZEn.
