@@ -51,8 +51,8 @@ architecture ROM32x32_arch of ROM32x32 is
 												x"ac05_0048", --9    sw $5, 0x48($0)
 												x"ac06_0048", --10   sw $6, 0x48($0)
 												x"ac07_0048", --11   sw $7, 0x48($0)
-												x"1043_fff3", --12   beq $2, $3, rep  # Reg $2 != Reg $3 => Saltul nu se face
-												x"1000_fff2", --13   beq $0, $0, rep  # Reg $0 = Reg $0  => Saltul se face 
+												x"1043_fff3", --12   beq $2, $3, rep  # Reg $2 != Reg $3 => Jump does not happen here
+												x"1000_fff2", --13   beq $0, $0, rep  # Reg $0 = Reg $0  => Jump happens here
 												x"0000_0000", --14                 
 												x"0000_0000", --15
 												x"0000_0000", --16

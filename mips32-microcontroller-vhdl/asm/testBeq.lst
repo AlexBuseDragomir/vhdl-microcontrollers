@@ -12,5 +12,5 @@
 0x00000024  0xac050048  sw $5,0x00000048($0)  10   			sw $5, 0x48($0)
 0x00000028  0xac060048  sw $6,0x00000048($0)  11   			sw $6, 0x48($0)
 0x0000002c  0xac070048  sw $7,0x00000048($0)  12   			sw $7, 0x48($0)
-0x00000030  0x1043fff3  beq $2,$3,0xfffffff3  13   			beq $2, $3, rep  # Reg $2 != Reg $3 => Saltul nu se face
-0x00000034  0x1000fff2  beq $0,$0,0xfffffff2  14   			beq $0, $0, rep  # Reg $0 = Reg $0  => Saltul se face 
+0x00000030  0x1043fff3  beq $2,$3,0xfffffff3  13   			beq $2, $3, rep  # Reg $2 != Reg $3 => Jump does not happen here
+0x00000034  0x1000fff2  beq $0,$0,0xfffffff2  14   			beq $0, $0, rep  # Reg $0 = Reg $0  => Jump happens here

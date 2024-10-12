@@ -10,5 +10,5 @@ rep:    lw $2, 0x40($0) # INW0=0xAAAA_AAAB
 	sw $5, 0x48($0)
 	sw $6, 0x48($0)
 	sw $7, 0x48($0)
-	beq $2, $3, rep  # Reg $2 != Reg $3 => Saltul nu se face
-	beq $0, $0, rep  # Reg $0 = Reg $0  => Saltul se face 
+	beq $2, $3, rep  # Reg $2 != Reg $3 => Jump does not happen here
+	beq $0, $0, rep  # Reg $0 = Reg $0  => Jump happens here
